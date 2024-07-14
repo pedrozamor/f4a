@@ -1,0 +1,28 @@
+.HeaderButton {
+  background-color: #183851;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  border: 0;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.HeaderButton:hover,
+.HeaderButton:focus {
+  background-color: #e6f2f2;
+  color: #183851;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.HeaderButton:disabled,
+.HeaderButton:hover:disabled,
+.HeaderButton:focus:disabled {
+  background: #ccc;
+  color: #979797;
+  cursor: not-allowed;
+}

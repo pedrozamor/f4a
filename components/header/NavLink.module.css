@@ -1,0 +1,16 @@
+.link {
+  text-decoration: none;
+  color: #b02e0c;
+  font-weight: normal;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.link:hover,
+.link:active {
+  text-decoration: underline;
+}
+
+.active {
+  text-decoration: underline;
+}
