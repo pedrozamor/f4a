@@ -9,7 +9,7 @@ export default async function MainHeaderButtons() {
   return (
     <>
       {!is_Login && (
-        <Link href="/login" className={classes.HeaderButton}>
+        <Link href="/user/login" className={classes.HeaderButton}>
           Sign In
         </Link>
       )}

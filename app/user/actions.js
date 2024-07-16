@@ -16,11 +16,10 @@ export async function login(formData) {
   const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
-    redirect("/error");
+    return redirect("/user/login?message=Could not authenticate user");
   }
-
   revalidatePath("/", "layout");
-  redirect("/");
+  return redirect("/");
 }
 
 export async function signup(formData) {
@@ -32,7 +31,7 @@ export async function signup(formData) {
   const confirmPassword = formData.get("confirmPassword");
 
   if (password !== confirmPassword) {
-    return redirect("/signup?message=Passwords do not match");
+    return redirect("/user/signup?message=Passwords do not match");
   }
 
   const data = {
@@ -46,46 +45,48 @@ export async function signup(formData) {
   const { error } = await supabase.auth.signUp(data);
 
   if (error) {
-    return redirect("/signup?message=Could not authenticate user");
+    return redirect("/user/signup?message=Could not authenticate user");
   }
 
   return redirect(
-    `/confirm?message=Check email(${email}) to continue sign in process`
+    `/user/confirm?message=Check email(${email}) to continue sign in process`
   );
-
-  /* if (error) {
-    redirect("/error");
-  }
-
-  revalidatePath("/", "layout");
-  redirect("/");*/
 }
 
 export async function resetPassword(formData) {
   const supabase = createClient();
+  const origin = headers().get("origin");
 
   const { error } = await supabase.auth.resetPasswordForEmail(
     formData.get("email"),
     {
-      redirectTo: "http://localhost:3000/login/reset/update",
+      redirectTo: `${origin}/user/reset`,
     }
   );
+  console.log(error);
   if (error) {
-    redirect("/error");
+    return redirect("/user/forgot?message=Could not authenticate user");
   }
+
+  return redirect(
+    "/user/confirm?message=Password Reset link has been sent to your email address"
+  );
 }
 
 export async function updatePassword(formData) {
   const supabase = createClient();
+  const password = formData.get("password");
 
-  const { error } = await supabase.auth.updateUser({
-    password: formData.get("password"),
-  });
+  const { error } = await supabase.auth.updateUser({ password });
 
   if (error) {
-    redirect("/error");
+    console.log(error);
+    return redirect(
+      `/user/forgot?message=Unable to reset Password. Try again!`
+    );
   }
 
-  revalidatePath("/", "layout");
-  redirect("/");
+  redirect(
+    `/user/login?message=Your Password has been reset successfully. Sign in.`
+  );
 }

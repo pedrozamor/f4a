@@ -3,6 +3,7 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import F4aLogo from "../F4aLogo";
 import MainHeaderButtons from "../login/MainHeaderButtons";
+import ShowUser from "../login/ShowUser";
 
 export default function MainHeader() {
   return (
@@ -25,6 +26,9 @@ export default function MainHeader() {
           </li>
           <li>
             <NavLink href="/about">About</NavLink>
+          </li>
+          <li>
+            <ShowUser />
           </li>
           <li>
             <MainHeaderButtons />
