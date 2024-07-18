@@ -1,7 +1,7 @@
 .main {
   display: flex; /* Añade flexbox */
   justify-content: center; /* Centra horizontalmente */
-  align-items: start; /* Centra verticalmente */
+  align-items: flex-start; /* Centra verticalmente */
   height: 100vh;
 }
 

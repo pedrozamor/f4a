@@ -1,0 +1,14 @@
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+  /* Opcional: Espacio entre las columnas */
+  gap: 2rem;
+  align-items: baseline;
+}
+
+.ListOfRecipes {
+  display: block;
+}
