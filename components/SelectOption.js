@@ -1,5 +1,3 @@
-import { getStatus } from "@/lib/recipes/recipes";
-
 export default async function SelectOption({
   options,
   default_value,
@@ -7,7 +5,7 @@ export default async function SelectOption({
   name,
 }) {
   return (
-    <>
+    <p>
       <label>{title}</label>
       <select name={name} defaultValue={default_value}>
         {options.map((option) => (
@@ -16,6 +14,6 @@ export default async function SelectOption({
           </option>
         ))}
       </select>
-    </>
+    </p>
   );
 }

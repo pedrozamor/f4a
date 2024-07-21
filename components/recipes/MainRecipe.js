@@ -10,6 +10,7 @@ import {
   getStatus,
 } from "@/lib/recipes/recipes";
 import Message from "../Message";
+import Input from "../Input";
 
 export default async function MainRecipe({ data }) {
   if (!data) notFound();
@@ -35,65 +36,48 @@ export default async function MainRecipe({ data }) {
           <p className={classes.creator}>by {data.users.name}</p>
         </div>
         <form className={classes.form} action={updateMainRecipe}>
-          <input
-            name="id_main_recipe"
-            id="id_main_recipe"
-            type="hidden"
-            value={data.id}
+          <Input
+            name={"id_main_recipe"}
+            type={"hidden"}
+            defaultValue={data.id}
           />
-          <input name="slug" id="slug" type="hidden" value={data.slug} />
-          <p>
-            <label htmlFor="default_total_weight">Total Weight</label>
-            <input
-              type="number"
-              name="default_total_weight"
-              id="default_total_weight"
-              defaultValue={data.default_total_weight}
-            />
-          </p>
-          <p>
-            <label htmlFor="percentage_profit">% Profit</label>
-            <input
-              type="number"
-              name="percentage_profit"
-              id="percentage_profit"
-              defaultValue={data.percentage_profit}
-            />
-          </p>
-          <p>
-            <label htmlFor="total_cost">Total Cost</label>
-            <input
-              type="number"
-              name="total_cost"
-              id="total_cost"
-              defaultValue={data.total_cost}
-            />
-          </p>
-          <p>
-            <label htmlFor="sale_price">Sale Price</label>
-            <input
-              type="number"
-              name="sale_price"
-              id="sale_price"
-              defaultValue={data.sale_price}
-            />
-          </p>
-          <p>
-            <SelectOption
-              options={arrayStatus}
-              default_value={recipe_status_id}
-              title={"Recipe Status"}
-              name={"recipe_status_id"}
-            />
-          </p>
-          <p>
-            <SelectOption
-              options={arrayCategory}
-              default_value={recipe_category_id}
-              title={"Recipe Category"}
-              name={"recipe_category_id"}
-            />
-          </p>
+          <Input name={"slug"} type={"hidden"} defaultValue={data.slug} />
+          <Input
+            name={"default_total_weight"}
+            type={"number"}
+            label={"Total Weight"}
+            defaultValue={data.default_total_weight}
+          />
+          <Input
+            name={"percentage_profit"}
+            type={"number"}
+            label={"% Profit"}
+            defaultValue={data.percentage_profit}
+          />
+          <Input
+            name={"total_cost"}
+            type={"number"}
+            label={"Total Cost"}
+            defaultValue={data.total_cost}
+          />
+          <Input
+            name={"sale_price"}
+            type={"number"}
+            label={"Sale Price"}
+            defaultValue={data.sale_price}
+          />
+          <SelectOption
+            options={arrayStatus}
+            default_value={recipe_status_id}
+            title={"Recipe Status"}
+            name={"recipe_status_id"}
+          />
+          <SelectOption
+            options={arrayCategory}
+            default_value={recipe_category_id}
+            title={"Recipe Category"}
+            name={"recipe_category_id"}
+          />
           <p className="action">
             <SubmitButton label="Save" />
           </p>

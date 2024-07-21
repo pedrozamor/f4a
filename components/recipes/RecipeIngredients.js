@@ -22,6 +22,7 @@ export default async function RecipeIngredients({ id, recipeWeight }) {
               <th>Ingredient</th>
               <th>Percentage</th>
               <th>Weight (grams)</th>
+              <th>Delete Ingredient</th>
             </tr>
           </thead>
           <tbody>
@@ -42,10 +43,13 @@ export default async function RecipeIngredients({ id, recipeWeight }) {
                     percentageSummatory
                   )}
                 </td>
+                <td>
+                  <button></button>
+                </td>
               </tr>
             ))}
             <tr>
-              <td colSpan={3} className="action">
+              <td colSpan={4} className="action">
                 <SubmitButton label="Save" />
               </td>
             </tr>

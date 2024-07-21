@@ -1,4 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
+import Input from "../Input";
 
 export default async function PercentageSummatory({ id }) {
   const supabase = createClient();
@@ -7,14 +8,12 @@ export default async function PercentageSummatory({ id }) {
     .select("sum")
     .filter("recipe_id", "eq", id);
   return (
-    <p>
-      <label htmlFor={`${id}sum`}>% Summatory</label>
-      <input
-        type="number"
-        name={`${id}sum`}
-        defaultValue={response.data[0].sum}
-        readOnly
-      />
-    </p>
+    <Input
+      name={`${id}sum`}
+      type={"number"}
+      label={"% Summatory"}
+      defaultValue={response.data[0].sum}
+      isReadOnly={true}
+    />
   );
 }
