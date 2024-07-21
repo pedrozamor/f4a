@@ -11,6 +11,7 @@ async function Recipe({ slug }) {
     .select(`*, users (name), recipe_status (name), recipe_category (name)`)
     .match({ slug })
     .single();
+
   return <MainRecipe data={data} />;
 }
 

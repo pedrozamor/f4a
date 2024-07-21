@@ -68,38 +68,20 @@
   color: #333;
 }
 
-.form p button {
-  border: 0;
-  padding: 0.75rem 2rem;
-  background: linear-gradient(90deg, #183851, #183851);
-  border: none;
-  color: #ffffff;
-  border-radius: 8px;
-  cursor: pointer;
-  font: inherit;
-  font-size: 1.25rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.form p button:hover,
-.form p button:focus {
-  background: linear-gradient(90deg, #454952, #454952);
-}
-
-.form p button:disabled,
-.form p button:hover:disabled,
-.form p button:focus:disabled {
-  background: #ccc;
-  color: #979797;
-  cursor: not-allowed;
-}
-
 .loading {
   font-size: 3rem;
   text-align: center;
   color: #ddd6cb;
   font-weight: bold;
   animation: flash 1s ease-in-out infinite alternate;
+}
+
+.msgError {
+  color: red;
+}
+
+.msgSuccess {
+  color: green;
 }
 
 @keyframes fade-slide-in-from-left {

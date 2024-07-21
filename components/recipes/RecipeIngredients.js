@@ -14,7 +14,7 @@ export default async function RecipeIngredients({ id, recipeWeight }) {
   const percentageSummatory = await getRecipePercentageSummatory(id);
 
   return (
-    <div>
+    <>
       <form className={classes.form} action={updateRecipeIngredients}>
         <table className={classes.ingredientsTable}>
           <thead>
@@ -45,13 +45,13 @@ export default async function RecipeIngredients({ id, recipeWeight }) {
               </tr>
             ))}
             <tr>
-              <td colSpan={3}>
+              <td colSpan={3} className="action">
                 <SubmitButton label="Save" />
               </td>
             </tr>
           </tbody>
         </table>
       </form>
-    </div>
+    </>
   );
 }

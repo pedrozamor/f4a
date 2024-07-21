@@ -42,7 +42,7 @@ export default function RecipeHeader({ data, recipeWeight, slug }) {
           />
         </p>
         <PercentageSummatory id={data.recipe_id} />
-        <p>
+        <p className="action">
           <SubmitButton label="Save" />
         </p>
       </form>
