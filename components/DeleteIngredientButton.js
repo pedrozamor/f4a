@@ -1,6 +1,6 @@
-// components/DeleteButton.js
 "use client";
 
+import { useState } from "react";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { deleteRecipeIngredient } from "@/lib/recipes/actions";
 import classes from "./DeleteIngredientButton.module.css";
@@ -10,14 +10,58 @@ export default function DeleteIngredientButton({
   ingredientId,
   slug,
 }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   async function handleDelete() {
-    await deleteRecipeIngredient(recipeId, ingredientId, slug);
-    // Puedes agregar lógica adicional aquí, como actualizar el estado del cliente o notificar al usuario
+    try {
+      await deleteRecipeIngredient(recipeId, ingredientId, slug);
+      closeModal();
+    } catch (error) {
+      setErrorMessage(
+        error.message || "An error occurred while deleting the ingredient."
+      );
+      setIsErrorModalOpen(true);
+    }
+  }
+
+  function openModal() {
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
+  function closeErrorModal() {
+    setIsErrorModalOpen(false);
   }
 
   return (
-    <button type="button" onClick={handleDelete}>
-      <TrashIcon className={classes.deleteIcon} />
-    </button>
+    <>
+      <button type="button" className={classes.button} onClick={openModal}>
+        <TrashIcon className={classes.deleteIcon} />
+      </button>
+
+      {isModalOpen && (
+        <div className={classes.overlay}>
+          <div className={classes.modal}>
+            <p>Are you sure you want to delete this ingredient?</p>
+            <button onClick={handleDelete}>Yes</button>
+            <button onClick={closeModal}>No</button>
+          </div>
+        </div>
+      )}
+
+      {isErrorModalOpen && (
+        <div className={classes.overlay}>
+          <div className={classes.modal}>
+            <p>{errorMessage}</p>
+            <button onClick={closeErrorModal}>Close</button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

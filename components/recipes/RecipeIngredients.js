@@ -37,14 +37,14 @@ export default async function RecipeIngredients({ id, recipeWeight, slug }) {
                     defaultValue={ingredient.percentage}
                   />
                 </td>
-                <td>
+                <td className={classes.centerColumn}>
                   {calcIngredientWeight(
                     ingredient.percentage,
                     recipeWeight,
                     percentageSummatory
                   )}
                 </td>
-                <td>
+                <td className={classes.centerColumn}>
                   <DeleteIngredientButton
                     ingredientId={ingredient.ingredient_id}
                     recipeId={id}

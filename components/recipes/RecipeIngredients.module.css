@@ -13,10 +13,15 @@
 }
 
 .ingredientsTable th {
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   color: #183851;
   font-weight: bold;
+}
+
+.centerColumn {
+  text-align: center;
+  vertical-align: middle;
 }
 
 @media screen and (max-width: 768px) {
