@@ -4,8 +4,9 @@ import getRecipePercentageSummatory, {
 import classes from "./RecipeIngredients.module.css";
 import { updateRecipeIngredients } from "@/lib/recipes/actions";
 import SubmitButton from "../SubmitButton";
+import DeleteIngredientButton from "../DeleteIngredientButton";
 
-export default async function RecipeIngredients({ id, recipeWeight }) {
+export default async function RecipeIngredients({ id, recipeWeight, slug }) {
   function calcIngredientWeight(percentage, totalWeight, sumPercentage) {
     return ((percentage * totalWeight) / sumPercentage).toFixed(0);
   }
@@ -44,7 +45,11 @@ export default async function RecipeIngredients({ id, recipeWeight }) {
                   )}
                 </td>
                 <td>
-                  <button></button>
+                  <DeleteIngredientButton
+                    ingredientId={ingredient.ingredient_id}
+                    recipeId={id}
+                    slug={slug}
+                  />
                 </td>
               </tr>
             ))}
