@@ -1,18 +1,15 @@
-import getRecipePercentageSummatory, {
-  getRecipeIngredients,
-} from "@/lib/recipes/recipes";
+import { getIngredientList } from "@/lib/recipes/recipes";
 import classes from "./RecipeIngredients.module.css";
 import { updateRecipeIngredients } from "@/lib/recipes/actions";
 import SubmitButton from "../SubmitButton";
 import DeleteIngredientButton from "../DeleteIngredientButton";
 
-export default async function RecipeIngredients({ id, recipeWeight, slug }) {
-  function calcIngredientWeight(percentage, totalWeight, sumPercentage) {
-    return ((percentage * totalWeight) / sumPercentage).toFixed(0);
-  }
-
-  const ingredientsList = await getRecipeIngredients(id);
-  const percentageSummatory = await getRecipePercentageSummatory(id);
+export default async function RecipeIngredients({
+  idRecipe,
+  idMainRecipe,
+  slug,
+}) {
+  const ingredientsList = await getIngredientList(idMainRecipe, idRecipe);
 
   return (
     <>
@@ -29,7 +26,7 @@ export default async function RecipeIngredients({ id, recipeWeight, slug }) {
           <tbody>
             {ingredientsList.map((ingredient) => (
               <tr key={ingredient.ingredient_id}>
-                <td>{ingredient.ingredient.name}</td>
+                <td>{ingredient.name}</td>
                 <td>
                   <input
                     type="number"
@@ -38,16 +35,12 @@ export default async function RecipeIngredients({ id, recipeWeight, slug }) {
                   />
                 </td>
                 <td className={classes.centerColumn}>
-                  {calcIngredientWeight(
-                    ingredient.percentage,
-                    recipeWeight,
-                    percentageSummatory
-                  )}
+                  {ingredient.ingredient_weight}
                 </td>
                 <td className={classes.centerColumn}>
                   <DeleteIngredientButton
                     ingredientId={ingredient.ingredient_id}
-                    recipeId={id}
+                    recipeId={idRecipe}
                     slug={slug}
                   />
                 </td>

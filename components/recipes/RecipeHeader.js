@@ -4,11 +4,11 @@ import classes from "./RecipeHeader.module.css";
 import SubmitButton from "../SubmitButton";
 import Input from "../Input";
 
-export default function RecipeHeader({ data, recipeWeight, slug }) {
+export default function RecipeHeader({ data, slug }) {
   return (
     <header className={classes.recipeHeader}>
       <div className={classes.title}>
-        <h2>{data.recipe.name}</h2>
+        <h2>{data.name}</h2>
       </div>
       <form className={classes.form} action={updateRecipeHeader}>
         <Input
@@ -32,7 +32,7 @@ export default function RecipeHeader({ data, recipeWeight, slug }) {
           name={"recipeWeight"}
           type={"number"}
           label={"Recipe Weight"}
-          defaultValue={recipeWeight}
+          defaultValue={data.calculated_weight}
           isReadOnly={true}
         />
         <PercentageSummatory id={data.recipe_id} />

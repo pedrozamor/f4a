@@ -90,11 +90,7 @@ export default async function MainRecipe({ data }) {
         </form>
       </header>
       <main>
-        <RecipeDetail
-          id={data.id}
-          totalWeight={data.default_total_weight}
-          slug={data.slug}
-        />
+        <RecipeDetail id={data.id} slug={data.slug} />
       </main>
     </>
   );
