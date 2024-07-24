@@ -1,10 +1,11 @@
 import classes from "./Message.module.css";
 
 export default function Message({ msg, typeOfMessage }) {
-  const className = !typeOfMessage ? "classes.msgError" : "classes.msgSuccess";
   return (
     <p>
-      <span className={className}>{msg}</span>
+      <span className={!typeOfMessage ? classes.msgError : classes.msgSuccess}>
+        {msg}
+      </span>
     </p>
   );
 }

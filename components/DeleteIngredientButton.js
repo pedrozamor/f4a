@@ -4,6 +4,8 @@ import { useState } from "react";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { deleteRecipeIngredient } from "@/lib/recipes/actions";
 import classes from "./DeleteIngredientButton.module.css";
+import ConfirmModal from "./ConfirmModal";
+import ErrorModal from "./ErrorModal";
 
 export default function DeleteIngredientButton({
   recipeId,
@@ -44,24 +46,18 @@ export default function DeleteIngredientButton({
         <TrashIcon className={classes.deleteIcon} />
       </button>
 
-      {isModalOpen && (
-        <div className={classes.overlay}>
-          <div className={classes.modal}>
-            <p>Are you sure you want to delete this ingredient?</p>
-            <button onClick={handleDelete}>Yes</button>
-            <button onClick={closeModal}>No</button>
-          </div>
-        </div>
-      )}
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onConfirm={handleDelete}
+        onCancel={closeModal}
+        message="Are you sure you want to delete this ingredient?"
+      />
 
-      {isErrorModalOpen && (
-        <div className={classes.overlay}>
-          <div className={classes.modal}>
-            <p>{errorMessage}</p>
-            <button onClick={closeErrorModal}>Close</button>
-          </div>
-        </div>
-      )}
+      <ErrorModal
+        isOpen={isErrorModalOpen}
+        onClose={closeErrorModal}
+        message={errorMessage}
+      />
     </>
   );
 }
