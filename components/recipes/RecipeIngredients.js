@@ -14,6 +14,8 @@ export default async function RecipeIngredients({
   return (
     <>
       <form className={classes.form} action={updateRecipeIngredients}>
+        <input type="hidden" name="recipe_id" value={idRecipe} />
+        <input type="hidden" name="slug" value={slug} />
         <table className={classes.ingredientsTable}>
           <thead>
             <tr>
@@ -29,8 +31,14 @@ export default async function RecipeIngredients({
                 <td>{ingredient.name}</td>
                 <td>
                   <input
+                    type="hidden"
+                    name="ingredient_id"
+                    value={`ingredient_id_${ingredient.ingredient_id}`}
+                  />
+
+                  <input
                     type="number"
-                    name={`percentage.${ingredient.ingredient_id}`}
+                    name={`percentage_${ingredient.ingredient_id}`}
                     defaultValue={ingredient.percentage}
                   />
                 </td>
