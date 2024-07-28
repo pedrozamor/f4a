@@ -1,39 +1,118 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  padding: 1.5rem;
+  margin: 1rem;
+  background-color: white;
 }
 
-.card {
-  padding: 1rem 1.2rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
+.header {
+  width: 100%;
+  text-align: center;
+  color: #183851;
+  padding: 1rem 0;
 }
 
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
+.header h1 {
   margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 30ch;
-  text-wrap: balance;
+  font-size: 3rem;
 }
 
-.logo {
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.gridItem {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.stepContent {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.stepNumber {
+  font-size: 1.5rem;
+  color: #b02e0c;
+  /*margin-bottom: 0.5rem;*/
+}
+
+.stepText {
+  border: 1px solid #183851;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.stepText p {
+  color: #183851;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.stepButton {
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  color: #183851;
+  border: 1px solid #183851;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 0;
+}
+
+.stepButton:hover {
+  background-color: #183851;
+  color: white;
+}
+
+.stepImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.imageContainer {
   position: relative;
+  width: 100%;
+  height: 100%; /* Ajusta esta altura según sea necesario */
+  margin-top: 1rem;
+}
+
+.footer {
+  width: 100%;
+  background-color: #183851;
+  color: white;
+  padding: 0;
+  text-align: left;
+}
+
+.footer h2 {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.goalsList {
+  list-style: none;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.goalsList li {
+  margin: 0.5rem 0;
 }
