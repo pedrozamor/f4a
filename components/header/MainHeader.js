@@ -12,7 +12,7 @@ export default function MainHeader() {
         <div className={classes.imgContainer}>
           <F4aLogo />
         </div>
-        <p>
+        <p className={classes.logoText}>
           Formula <span className={classes.redText}>4</span> All
         </p>
       </Link>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import classes from "./page.module.css";
 import Image from "next/image";
+import { CheckCircleIconIcon } from "@heroicons/react/24/solid";
 
 export default function Home() {
   return (
@@ -75,21 +76,12 @@ export default function Home() {
               </div>
             </div>
             <button type="button" className={classes.stepButton}>
-              Get production cost and sale price
+              Get production cost
             </button>
           </div>
         </div>
         <div className={classes.footer}>
-          <h2>By standardizing you can...</h2>
-          <ul className={classes.goalsList}>
-            <li>Get always the same product quality</li>
-            <li>
-              Be able to calculate the exact weight of each ingredient according
-              to your purposes.
-            </li>
-            <li>Optimize production costs and sales prices</li>
-            <li>Increase profitability</li>
-          </ul>
+          <h2>Unlock profitability through recipe precision</h2>
         </div>
         <div className={classes.copyright}>
           <p>

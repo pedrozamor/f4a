@@ -12,6 +12,7 @@
   text-align: center;
   color: #183851;
   padding: 1rem 0;
+  background: #e6f2f2; /* Fondo azul claro */
 }
 
 .header h1 {
@@ -99,7 +100,7 @@
   background-color: #183851;
   color: white;
   padding: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .footer h2 {
@@ -107,12 +108,20 @@
   font-size: 1.5rem;
 }
 
-.goalsList {
-  list-style: none;
-  padding: 0;
-  margin-left: 1rem;
+.copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
 }
 
-.goalsList li {
-  margin: 0.5rem 0;
+.copyright p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #183851;
+}
+
+.checkCircleIcon {
+  width: 24px;
+  height: 24px;
+  color: green;
 }

@@ -1,3 +1,5 @@
+import SubmitButton from "../SubmitButton";
+
 export default async function IngredientsList() {
   function calcIngredientWeight(percentage, totalWeight, sumPercentage) {
     return ((percentage * totalWeight) / sumPercentage).toFixed(0);

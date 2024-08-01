@@ -1,4 +1,6 @@
 .user {
+  margin: 0;
+  padding: 0;
   color: #183851;
   text-align: right;
 }
