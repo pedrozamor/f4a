@@ -11,11 +11,12 @@ export default async function NewRecipe() {
   const arrayStatus = await getStatus();
   //Array of category to load the select options
   const arrayCategory = await getCategory();
-
+  //Array of Favorite options
   const arrayFavorite = [
     { id: true, name: "YES" },
     { id: false, name: "NO" },
   ];
+
   return (
     <>
       <main className={classes.main}>
