@@ -1,4 +1,11 @@
-export default function Input({ type, name, label, defaultValue, isReadOnly }) {
+export default function Input({
+  type,
+  name,
+  label,
+  defaultValue,
+  isReadOnly,
+  isRequired,
+}) {
   const is_hidden = type == "hidden" ? true : false;
   return (
     <>
@@ -11,6 +18,7 @@ export default function Input({ type, name, label, defaultValue, isReadOnly }) {
             id={name}
             defaultValue={defaultValue}
             readOnly={isReadOnly ? true : undefined}
+            required={isRequired ? true : undefined}
           />
         </p>
       )}
