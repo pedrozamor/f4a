@@ -153,3 +153,42 @@ export async function newMainRecipe(formData) {
     throw error;
   }
 }
+
+export async function newRecipe(recipes) {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  for (const recipe of recipes) {
+    if (!recipe || !recipe.name) {
+      console.error("Invalid recipe:", recipe);
+      continue;
+    }
+
+    const dataInsert = {
+      name: recipe.name,
+      user_id: user.id,
+    };
+    console.log("recipe: ", recipe);
+    console.log("dataInsert: ", dataInsert);
+  }
+  /*const { dataReturn, error } = await supabase
+    .from("recipe")
+    .insert(dataInsert)
+    .single();
+  console.log("dataReturn: ", dataReturn);*/
+
+  /*const { data, error } = await newRecipe(recipe.name);
+    if (data) {
+      newRecipes.push({
+        main_recipe_id: mainRecipeId,
+        recipe_id: data.id,
+        percentage: recipe.percentage,
+      });
+    }*/
+
+  //console.log("dataInsert: ", dataInsert);
+
+  //return dataReturn;
+}

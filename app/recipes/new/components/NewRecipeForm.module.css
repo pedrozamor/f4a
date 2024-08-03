@@ -1,34 +1,17 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
-  margin: 1rem;
-  background-color: white;
-}
-
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #183851;
-  padding: 1rem;
-  background: #e6f2f2; /* Fondo azul claro */
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 3rem;
-  color: #b02e0c;
-  padding: 0;
-  font-family: "Montserrat", sans-serif;
-}
-
 .fieldset {
   margin: 0.5rem;
   border: 2px solid #183851;
   border-radius: 4px;
+}
+
+.span {
+  font-size: 1rem;
+  margin: auto;
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: #183851;
+  font-weight: bold;
 }
 
 .legend {
@@ -36,10 +19,11 @@
   color: #b02e0c;
   font-weight: 600;
 }
+
 .form {
   margin: 1rem;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto;
   column-gap: 0.2rem;
   row-gap: 0.5rem;
 }
