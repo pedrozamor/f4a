@@ -1,8 +1,8 @@
-import { getIngredientList } from "@/lib/recipes/recipes";
+import { getIngredientList } from "@/app/recipes/lib/recipes";
 import classes from "./RecipeIngredients.module.css";
-import { updateRecipeIngredients } from "@/lib/recipes/actions";
-import SubmitButton from "../SubmitButton";
-import DeleteIngredientButton from "../DeleteIngredientButton";
+import { updateRecipeIngredients } from "@/app/recipes/lib/actions";
+import SubmitButton from "../../../components/SubmitButton";
+import DeleteIngredientButton from "./DeleteIngredientButton";
 
 export default async function RecipeIngredients({
   idRecipe,

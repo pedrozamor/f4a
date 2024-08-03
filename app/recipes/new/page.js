@@ -1,10 +1,10 @@
 import Input from "@/components/Input";
 import classes from "./page.module.css";
 import SubmitButton from "@/components/SubmitButton";
-import { getCategory, getStatus } from "@/lib/recipes/recipes";
+import { getCategory, getStatus } from "@/app/recipes/lib/recipes";
 import SelectOption from "@/components/SelectOption";
 import Link from "next/link";
-import { newMainRecipe } from "@/lib/recipes/actions";
+import { newMainRecipe } from "@/app/recipes/lib/actions";
 
 export default async function NewRecipe() {
   //Array of status to load the select options

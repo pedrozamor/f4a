@@ -2,11 +2,13 @@
   width: 24px;
   height: 24px;
   color: red;
+  cursor: pointer;
 }
 
 .button {
   border: none;
   background-color: white;
+  cursor: pointer;
 }
 
 .overlay {

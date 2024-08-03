@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
-import Input from "../Input";
+import Input from "../../../components/Input";
 
 export default async function PercentageSummatory({ id }) {
   const supabase = createClient();

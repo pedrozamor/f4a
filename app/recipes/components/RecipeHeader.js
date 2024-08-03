@@ -1,8 +1,8 @@
-import { updateRecipeHeader } from "@/lib/recipes/actions";
+import { updateRecipeHeader } from "@/app/recipes/lib/actions";
 import PercentageSummatory from "./PercentageSummatory";
 import classes from "./RecipeHeader.module.css";
-import SubmitButton from "../SubmitButton";
-import Input from "../Input";
+import SubmitButton from "../../../components/SubmitButton";
+import Input from "../../../components/Input";
 
 export default function RecipeHeader({ data, slug }) {
   return (

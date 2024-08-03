@@ -1,4 +1,4 @@
-import RecipesGrid from "@/components/recipes/RecipesGrid";
+import RecipesGrid from "@/app/recipes/components/RecipesGrid";
 import classes from "./page.module.css";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";

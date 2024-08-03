@@ -1,4 +1,4 @@
-import MainRecipe from "@/components/recipes/MainRecipe";
+import MainRecipe from "@/app/recipes/components/MainRecipe";
 import { createClient } from "@/utils/supabase/server";
 
 export const revalidate = 0;

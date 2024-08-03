@@ -1,16 +1,16 @@
 import classes from "./MainRecipe.module.css";
 import { notFound } from "next/navigation";
 import RecipeDetail from "./RecipeDetail";
-import SubmitButton from "../SubmitButton";
-import { updateMainRecipe } from "@/lib/recipes/actions";
-import SelectOption from "../SelectOption";
+import SubmitButton from "../../../components/SubmitButton";
+import { updateMainRecipe } from "@/app/recipes/lib/actions";
+import SelectOption from "../../../components/SelectOption";
 import {
   getCategory,
   getPercentageSecondaryRecipes,
   getStatus,
-} from "@/lib/recipes/recipes";
-import Message from "../Message";
-import Input from "../Input";
+} from "@/app/recipes/lib/recipes";
+import Message from "../../../components/Message";
+import Input from "../../../components/Input";
 
 export default async function MainRecipe({ data }) {
   if (!data) notFound();

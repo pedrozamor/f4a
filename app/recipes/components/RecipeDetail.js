@@ -1,4 +1,4 @@
-import { getRecipeDetails } from "@/lib/recipes/recipes";
+import { getRecipeDetails } from "@/app/recipes/lib/recipes";
 import RecipeHeader from "./RecipeHeader";
 import RecipeIngredients from "./RecipeIngredients";
 import classes from "./RecipeDetail.module.css";

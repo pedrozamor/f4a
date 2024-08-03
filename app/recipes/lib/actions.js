@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import generateUniqueSlug from "../slugGenerator";
+import generateUniqueSlug from "./slugGenerator";
 
 export async function updateMainRecipe(formData) {
   const id = formData.get("id_main_recipe");
@@ -61,11 +61,17 @@ export async function updateRecipeHeader(formData) {
 
 export async function deleteRecipeIngredient(recipe_id, ingredient_id, slug) {
   const supabase = createClient();
+
+  const { data } = await supabase.auth.getUser();
+
   const { error } = await supabase
     .from("recipe_ingredients")
     .delete()
     .filter("recipe_id", "eq", recipe_id)
-    .filter("ingredient_id", "eq", ingredient_id);
+    .filter("ingredient_id", "eq", ingredient_id)
+    .filter("user_id", "eq", data.user.id);
+
+  console.log(error);
 
   if (error) {
     throw new Error(
@@ -79,6 +85,12 @@ export async function deleteRecipeIngredient(recipe_id, ingredient_id, slug) {
 export async function updateRecipeIngredients(formData) {
   const recipeId = formData.get("recipe_id");
   const slug = formData.get("slug");
+
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const updates = [];
 
   for (const [key, value] of formData.entries()) {
@@ -88,19 +100,19 @@ export async function updateRecipeIngredients(formData) {
         ingredient_id: ingredientId,
         recipe_id: recipeId,
         percentage: value,
+        user_id: user.id,
       });
     }
   }
 
-  const supabase = createClient();
   try {
     const { error } = await supabase.from("recipe_ingredients").upsert(updates);
-
-    if (error) {
+    console.log(error);
+    /*if (error) {
       throw new Error(
         "Unable to update the percentages. Please, try again. If the error persist, contact the system administrator"
       );
-    }
+    }*/
     revalidatePath(`/${slug}`);
     return;
   } catch (error) {

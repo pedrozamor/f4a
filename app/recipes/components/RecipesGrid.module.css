@@ -1,0 +1,9 @@
+.recipes {
+  width: 100%;
+  display: flex;
+  /*grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));*/
+  gap: 2rem;
+  margin: 1rem;
+  list-style: none;
+  padding: 0;
+}

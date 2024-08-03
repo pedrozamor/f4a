@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { TrashIcon } from "@heroicons/react/24/outline";
-import { deleteRecipeIngredient } from "@/lib/recipes/actions";
+import { deleteRecipeIngredient } from "@/app/recipes/lib/actions";
 import classes from "./DeleteIngredientButton.module.css";
-import ConfirmModal from "./ConfirmModal";
-import ErrorModal from "./ErrorModal";
+import ConfirmModal from "../../../components/ConfirmModal";
+import ErrorModal from "../../../components/ErrorModal";
 
 export default function DeleteIngredientButton({
   recipeId,
