@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import classes from "./NewRecipeForm.module.css";
-import { handleSubmit as serverHandleSubmit } from "../../lib/actions";
 
 export default function NewRecipeForm({ mainRecipeId }) {
   const [recipes, setRecipes] = useState([]);
@@ -38,18 +37,20 @@ export default function NewRecipeForm({ mainRecipeId }) {
     setRecipes(newRecipes);
   };
 
+  /*
   const handleSubmit = async () => {
     try {
-      const newRecipes = await serverHandleSubmit({ recipes, mainRecipeId });
-      console.log("Recipes successfully added:", newRecipes);
+      const news = await newRecipe(recipes, mainRecipeId);
+      console.log("Recipes successfully added:", news);
     } catch (error) {
       console.error("Error submitting recipes:", error);
     }
-  };
+  };*/
 
   return (
     <fieldset className={classes.fieldset}>
       <legend className={classes.legend}>New Sub-Recipe</legend>
+      <p>Main Recipe Id: {mainRecipeId}</p>
       <form className={classes.form}>
         <p>
           <label htmlFor="recipeName">Recipe Name</label>
@@ -89,7 +90,7 @@ export default function NewRecipeForm({ mainRecipeId }) {
       <div className={classes.total}>
         <strong>Total Percentage: {totalPercentage}%</strong>
       </div>
-      <button type="button" className={classes.button} onClick={handleSubmit}>
+      <button type="button" className={classes.button}>
         Submit Recipes
       </button>
     </fieldset>

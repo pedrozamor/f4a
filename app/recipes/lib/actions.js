@@ -139,22 +139,24 @@ export async function newMainRecipe(formData) {
     user_id: data.user.id,
   };
   try {
-    const { error } = await supabase.from("main_recipe").insert(dataInsert);
-
+    const { data, error } = await supabase
+      .from("main_recipe")
+      .insert(dataInsert)
+      .select();
+    console.log("Main Recipe ID: ", data[0].id);
     if (error) {
       throw new Error(
         "Unable to create new recipe. Please, try again. If the error persist, contact the system administrator"
       );
     }
-    redirect(`/recipes/new/${uniqueSlug}`);
-    return;
+    return data[0].id;
   } catch (error) {
     console.error("Error updating recipe ingredients:", error);
     throw error;
   }
 }
 
-export async function newRecipe(recipes) {
+export async function newRecipe(recipes, mainRecipeId) {
   const supabase = createClient();
   const {
     data: { user },
@@ -172,6 +174,7 @@ export async function newRecipe(recipes) {
     };
     console.log("recipe: ", recipe);
     console.log("dataInsert: ", dataInsert);
+    console.log("mainRecipeId: ", mainRecipeId);
   }
   /*const { dataReturn, error } = await supabase
     .from("recipe")
